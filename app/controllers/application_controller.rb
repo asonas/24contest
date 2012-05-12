@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
   def false_list
-    if /aniversary\/new/.match(url_for) == nil
+    if /singularity/.match(url_for).nil?
       true
     else
       false
