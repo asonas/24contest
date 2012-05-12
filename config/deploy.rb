@@ -1,25 +1,26 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+require 'capistrano_colors'
+require "bundler/capistrano"
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+# RVMを利用している場合は必要
+#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+#require 'rvm/capistrano'
+#set :rvm_ruby_string, '1.9.2@dm'
+set :user, 'rackhuber'
+set :port, 50013
+#set :rvm_type, :user
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+# リポジトリの設定
+set :application, "cutend"
+set :scm, :git
+set :repository, "git@github.com:asonas/24contest.git"
+set :branch, "master" #devブランチ切ったら変更すること
+set :deploy_via, :remote_cache
+set :deploy_to, "/home/rackhuber/#{application}"
+set :rails_env, "development"
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+role :web, "asonas.rackbox.net"
+# Your HTTP server, Apache/etc
+role :app, "asonas.rackbox.net"
+# This may be the same as your `Web` server
+role :db,  "asonas.rackbox.net", :primary => true
+# This is where Rails migrations will run
