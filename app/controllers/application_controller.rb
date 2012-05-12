@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
   def authentication_filter                                                                                                                             
-     return if authenticated?
-     redirect_to root_path
+    return if authenticated?
+    redirect_to root_path
   end
 end
