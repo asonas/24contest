@@ -1,4 +1,17 @@
 %p#notice= notice
 
+.anniversary
+  .an-anniversary
+    %span 記念日
+    %h1= @anniversary.anniversary
 
+  .date
+    %span ひにち
+    %span= @anniversary.date
+
+  .description
+    %span 詳細
+    %h3= @anniversary.description
+
+.link
 = link_to '一日一覧', anniversaries_path
