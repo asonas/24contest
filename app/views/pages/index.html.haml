@@ -1,2 +1,7 @@
 %h1 Pages#index
 %p Find me in app/views/pages/index.html.haml
+
+- if current_user.nil?
+  = link_to "Twitterでlogin","/auth/twitter"
+- else
+  ok dao !
