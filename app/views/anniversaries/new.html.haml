@@ -1,14 +1,14 @@
 %h1 一日を終わらせる
 
-%p 時空を歪ませて記念日にしましょう！
+%p 時空を歪ませて「今」を記念日にしましょう！
 
 =form_for(@anniversary) do |f|
   .form-field
     = f.label 'タイトル'
     = f.text_field :anniversary
     = f.label '詳細'
-    = f.text_area :description
+    = f.text_area :description, :rows=>'4'
   .submit-field
     = f.submit '一日を終わらせる'
 
-= link_to 'Back', anniversaries_path
+= link_to '一日一覧', anniversaries_path
