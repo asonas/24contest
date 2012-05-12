@@ -6,4 +6,6 @@ Cont24::Application.routes.draw do
 
   get "/auth/:provider/callback" => "sessions#callback"
   get "/logout" => "sessions#destroy", :as => :logout
+  get "/singularity" => "pages#singularity", :as => :singularity
+  get "/singularity/execute" => "pages#execute", :as => :execute
 end

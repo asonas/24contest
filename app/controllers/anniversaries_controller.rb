@@ -46,7 +46,7 @@ pp params
     @anniversary.user_id = current_user.id
     # FIXME 3rd parameter
     # tweet_body = "@%s は最高の幸せを噛み締めた。彼の1日は終わったのだ。 http://hoge.com/%s/%s" % [@anniversary.user.twitter_id, @anniversary.user.twitter_id, @anniversary.id]
-    # tweet_result = current_user.tweet({:body => tweet_body, :user => current_user})
+    # tweet_result = current_user.tweet({:tweet_body => tweet_body, :user => current_user})
     # @anniversary.tweet_id = tweet_result[:id].to_i
 
     respond_to do |format|
