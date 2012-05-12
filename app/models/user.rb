@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
   has_many :anniversary
 
@@ -10,15 +9,16 @@ class User < ActiveRecord::Base
      user.icon_url = auth[:info][:image]
      user.save
      return user
-   end
-end
-def tweet(args)
-  config = Rails.application.config.twitter["development"]
-  Twitter.configure do |conf|
-    conf.consumer_key       = config["consumer_key"]
-    conf.consumer_secret    = config["consumer_secret"]
-    conf.oauth_token        = args[:user].access_token
-    conf.oauth_token_secret = args[:user].access_secret
+  end
+
+  def tweet(args)
+    config = Rails.application.config.twitter["development"]
+    Twitter.configure do |conf|
+      conf.consumer_key       = config["consumer_key"]
+      conf.consumer_secret    = config["consumer_secret"]
+      conf.oauth_token        = args[:user].access_token
+      conf.oauth_token_secret = args[:user].access_secret
+    end
   end
 
   tweet = Twitter::Client.new
