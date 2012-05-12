@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :icon_url
       t.string :access_token
       t.string :access_secret
-      t.string :provider
 
       t.timestamps
     end

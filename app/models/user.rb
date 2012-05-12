@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
      user.uid = auth[:uid]
      user.twitter_id = auth[:info][:nickname]
      user.icon_url = auth[:info][:image]
+     user.access_token = auth['credentials']['token']
+     user.access_secret = auth['credentials']['secret']
      user.save
      return user
   end
@@ -18,8 +20,8 @@ class User < ActiveRecord::Base
       conf.consumer_secret    = config["consumer_secret"]
       conf.oauth_token        = args[:user].access_token
       conf.oauth_token_secret = args[:user].access_secret
-
     end
+
     tweet = Twitter::Client.new
     tweet.update(args[:tweet_body])
   end
