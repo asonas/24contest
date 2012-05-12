@@ -1,3 +1,24 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contener{
+  text-align: center; }
+
+
+.masthead {
+  padding-top: 36px;
+  margin-bottom: 72px;
+  text-align: center; }
+
+.jumbotron {
+  position: relative; }
+
+p.login-btn {
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 30px;
+  line-height: 36px; }
+
+p.login-btn a {
+  color: white;}
