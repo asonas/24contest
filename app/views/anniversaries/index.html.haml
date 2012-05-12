@@ -8,9 +8,8 @@
 
   - @anniversaries.each do |anniversary|
     %tr
-      %td= link_to 'Show', anniversary
-      %td= link_to 'Edit', edit_anniversary_path(anniversary)
-      %td= link_to 'Destroy', anniversary, :confirm => 'Are you sure?', :method => :delete
+      %td= anniversary.date.strftime("%Y-%m-%d")
+      %td= link_to anniversary.anniversary, anniversary
 
 %br
 
