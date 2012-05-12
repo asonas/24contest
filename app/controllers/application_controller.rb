@@ -12,8 +12,18 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
   
+  def false_list
+    if /aniversary\/new/.match(url_for) == nil
+      true
+    else
+      false
+    end
+  end
+  helper_method :false_list
+  
   def authentication_filter
     return if authenticated?
     redirect_to root_path
   end
+  
 end

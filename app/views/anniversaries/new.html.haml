@@ -4,11 +4,11 @@
 
 =form_for(@anniversary) do |f|
   .form-field
-    = f.label 'タイトル'
+    = f.label '記念日名'
     = f.text_field :anniversary
     = f.label '詳細'
     = f.text_area :description, :rows=>'4'
   .submit-field
     = f.submit '一日を終わらせる'
 
-= link_to '一日一覧', anniversaries_path
+= link_to '一日一覧へ', anniversaries_path
