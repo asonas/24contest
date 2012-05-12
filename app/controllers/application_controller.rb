@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  require 'pp'
   def authenticated?
     return false if session[:user_id].nil? or session[:user_created_at].nil? or current_user.nil?
     return true
@@ -11,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
   
-  def authentication_filter                                                                                                                             
+  def authentication_filter
     return if authenticated?
     redirect_to root_path
   end
