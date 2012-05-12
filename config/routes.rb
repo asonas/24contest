@@ -1,4 +1,7 @@
 Cont24::Application.routes.draw do
+
+  get "help"
+
   resources :anniversaries
   root :to => 'Pages#index'
 
