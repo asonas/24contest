@@ -8,7 +8,7 @@
 
   - @anniversaries.each do |anniversary|
     %tr
-      %td= anniversary.date
+      %td= anniversary.date.strftime("%Y-%m-%d")
       %td= link_to anniversary.anniversary, anniversary
 
 %br
