@@ -4,8 +4,7 @@ class AnniversariesController < ApplicationController
   # GET /anniversaries.json
   def index
     pp current_user.id
-    @anniversaries = Anniversary.find(:all, :conditions => ['user_id',current_user.id])
-    pp @anniversaries
+    @anniversaries = Anniversary.find(:all, :conditions => ['user_id=?',current_user.id])
 
     respond_to do |format|
       format.html # index.html.erb
