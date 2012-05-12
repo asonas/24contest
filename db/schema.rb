@@ -11,19 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120512083033) do
+ActiveRecord::Schema.define(:version => 20120512161402) do
 
   create_table "anniversaries", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "anniversary"
-    t.string   "description"
-    t.string   "anniversary_date"
-    t.integer  "tweet_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "anniversaries", ["user_id"], :name => "index_anniversaries_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "uid"
@@ -31,10 +24,10 @@ ActiveRecord::Schema.define(:version => 20120512083033) do
     t.string   "icon_url"
     t.string   "access_token"
     t.string   "access_secret"
-    t.string   "provider"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.text     "description"
+    t.string   "provider"
   end
 
 end
