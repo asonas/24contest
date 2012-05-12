@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :twitter_id
       t.string :icon_url
       t.string :access_token
-      t.steing :access_secret
+      t.string :access_secret
 
       t.timestamps
     end
