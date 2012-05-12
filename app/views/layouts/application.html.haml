@@ -34,6 +34,12 @@
       .content
         .row
           .span9
+            - if current_user
+              =link_to "ログアウト" ,logout_path
+              =image_tag current_user.icon_url
+              = current_user.twitter_id
+            - else
+              = link_to "Twitterでlogin","/auth/twitter"
             = yield
 
       %footer
