@@ -1,7 +1,9 @@
-%h1 Pages#index
-%p Find me in app/views/pages/index.html.haml
-
+.contener
+  %img(src="images/cutend-logo-opt.png" width="640")
 - if current_user.nil?
-  = link_to "Twitterでlogin","/auth/twitter"
+  .jumbotron.masthead
+    %p.login-btn
+      = link_to "Twitterでlogin","/auth/twitter", :class => 'btn btn-primary btn-large'
 - else
   ok dao !
+  
