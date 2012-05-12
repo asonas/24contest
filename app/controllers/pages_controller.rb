@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 class PagesController < ApplicationController
   def index
+    
+    pp current_user
     if authenticated?
       if current_user.anniversary.count == 0
         return redirect_to singularity_path
