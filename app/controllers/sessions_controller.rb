@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
     if user.nil?
       user = User.create_with_omniauth(auth)
     end
-    if user.twitterID != auth[:info][:nickname] || user.icon_url != auth[:info][:image]
-      user.twitterID = auth[:info][:nickname]
+    if user.twitter_id != auth[:info][:nickname] || user.icon_url != auth[:info][:image]
+      user.twitter_id = auth[:info][:nickname]
       user.icon_url = auth[:info][:image]
       user.token = auth['credentials']['token']
       user.secret = auth['credentials']['secret']
