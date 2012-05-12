@@ -54,8 +54,9 @@ class AnniversariesController < ApplicationController
     else
       @anniversary.date = Date.today + 1.days
     end
+    @anniversary.save
     # FIXME 3rd parameter
-    tweet_body = "@#{@anniversary.user.twitter_id} は最高の幸せを噛み締めた。そう、一日は終わったのだ。http://cutend.me/anniversaries/#{@anniversary.id} "
+    tweet_body = "@#{@anniversary.user.twitter_id} は最高の幸せを噛み締めた。そう、一日は終わったのだ。http://cutend.me:3000/anniversaries/#{@anniversary.id} #cutend"
     tweet_result = current_user.tweet({:tweet_body => tweet_body, :user => current_user})
     @anniversary.tweet_id = tweet_result[:id].to_i
 
