@@ -2,7 +2,9 @@ class AnniversariesController < ApplicationController
   # GET /anniversaries
   # GET /anniversaries.json
   def index
-    @anniversaries = Anniversary.all
+    pp current_user.id
+    @anniversaries = Anniversary.find(:all, :conditions => ['user_id',current_user.id])
+    pp @anniversaries
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,8 +45,15 @@ class AnniversariesController < ApplicationController
     @anniversary = Anniversary.new
     form = params[:anniversary]
     @anniversary.anniversary = form[:anniversary]
-    @anniversary.anniversary = form[:description]
+    @anniversary.description = form[:description]
+
     @anniversary.user_id = current_user.id
+    last_anniversary = Anniversary.find(:all, :conditions => ['user_id', '1']).first
+    if last_anniversary
+      @anniversary.date = last_anniversary.date + 1.days
+    else
+      @anniversary.date = Date.today + 1.days
+    end
     # FIXME 3rd parameter
     # tweet_body = "@%s は最高の幸せを噛み締めた。彼の1日は終わったのだ。 http://hoge.com/%s/%s" % [@anniversary.user.twitter_id, @anniversary.user.twitter_id, @anniversary.id]
     # tweet_result = current_user.tweet({:body => tweet_body, :user => current_user})
@@ -52,7 +61,7 @@ class AnniversariesController < ApplicationController
 
     respond_to do |format|
       if @anniversary.save
-        format.html { redirect_to @anniversary, notice: 'Anniversary was successfully created.' }
+        format.html { redirect_to '/anniversaries', notice: 'Anniversary was successfully created.' }
         format.json { render json: @anniversary, status: :created, location: @anniversary }
       else
         format.html { render action: "new" }
