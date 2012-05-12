@@ -1,16 +1,9 @@
 %h1 一日一覧
 %p
   = link_to '一日を終わらせる', new_anniversary_path
-%table
-  %tr
-    %th
-    %th
-    %th
 
-  - @anniversaries.each do |anniversary|
-    %tr
-      %td= anniversary.date.strftime("%Y-%m-%d")
-      %td= link_to anniversary.anniversary, anniversary
-
-%br
+%div.waku
+- @anniversaries.each do |anniversary|
+  %h4= anniversary.date.strftime("%Y-%m-%d")
+  %p= link_to anniversary.anniversary, anniversary
 
