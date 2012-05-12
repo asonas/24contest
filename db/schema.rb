@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120512082023) do
+ActiveRecord::Schema.define(:version => 20120512083033) do
 
   create_table "anniversaries", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.string   "anniversary"
+    t.string   "description"
+    t.string   "anniversary_date"
+    t.integer  "tweet_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
+
+  add_index "anniversaries", ["user_id"], :name => "index_anniversaries_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "uid"
