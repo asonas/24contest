@@ -11,6 +11,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'rspec'
 gem 'rspec-rails'
+gem 'twitter'
 
 gem 'capistrano_colors'
 
