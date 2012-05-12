@@ -19,9 +19,9 @@ class User < ActiveRecord::Base
       conf.oauth_token        = args[:user].access_token
       conf.oauth_token_secret = args[:user].access_secret
 
-      tweet = Twitter::Client.new
-      tweet.update(args[:tweet_body])
     end
-
+    tweet = Twitter::Client.new
+    tweet.update(args[:tweet_body])
   end
+
 end
