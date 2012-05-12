@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(:version => 20120512083033) do
     t.integer  "user_id"
     t.string   "anniversary"
     t.string   "description"
-    t.string   "anniversary_date"
-    t.integer  "tweet_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "date"
+    t.string   "tweet_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "anniversaries", ["user_id"], :name => "index_anniversaries_on_user_id"
