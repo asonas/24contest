@@ -1,0 +1,17 @@
+%h1 Listing anniversaries
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @anniversaries.each do |anniversary|
+    %tr
+      %td= link_to 'Show', anniversary
+      %td= link_to 'Edit', edit_anniversary_path(anniversary)
+      %td= link_to 'Destroy', anniversary, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Anniversary', new_anniversary_path

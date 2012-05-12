@@ -1,4 +1,6 @@
 Cont24::Application.routes.draw do
+  resources :anniversaries
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

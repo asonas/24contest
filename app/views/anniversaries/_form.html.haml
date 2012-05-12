@@ -1,0 +1,10 @@
+= form_for @anniversary do |f|
+  -if @anniversary.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@anniversary.errors.count, "error")} prohibited this anniversary from being saved:"
+      %ul
+        - @anniversary.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'
