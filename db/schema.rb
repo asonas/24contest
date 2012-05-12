@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120512064013) do
+ActiveRecord::Schema.define(:version => 20120512082023) do
 
   create_table "anniversaries", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(:version => 20120512064013) do
     t.string   "icon_url"
     t.string   "access_token"
     t.string   "access_secret"
+    t.string   "provider"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.text     "description"
   end
 
 end
