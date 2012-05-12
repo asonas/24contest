@@ -1,5 +1,12 @@
 %h1 New anniversary
 
-= render 'form'
+=form_for(@anniversary) do |f|
+  .form-field
+    = f.label :anniversary
+    = f.text_field :anniversary
+    = f.label :description
+    = f.text_area :description
+  .submit-field
+    = f.submit
 
 = link_to 'Back', anniversaries_path
