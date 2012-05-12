@@ -1,13 +1,13 @@
 %p#notice= notice
 
 .anniversary
+  .date
+    %span= @anniversary.date.strftime("%Y-%m-%d")
+
   .an-anniversary
-    %span 記念日
+    %span 記念日名
     %h1= @anniversary.anniversary
 
-  .date
-    %span ひにち
-    %span= @anniversary.date
 
   .description
     %span 詳細
