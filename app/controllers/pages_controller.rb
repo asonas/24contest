@@ -25,7 +25,7 @@ class PagesController < ApplicationController
 
     # FIXME 3rd parameter
     # tweet_body = "@%s の時空が歪んだ。 http://hoge.com/%s/1" % [@anniversary.user.twitter_id, @anniversary.user.twitter_id]]
-    tweet_body = "@#{@anniversary.user.twitter_id} の時空が歪んだ。 http://cutend.me/anniversaries/#{@anniversary.id} "
+    tweet_body = "@#{@anniversary.user.twitter_id} の時空が歪んだ。 http://cutend.me:3000/anniversaries/#{@anniversary.id} "
     pp tweet_body
     tweet_result = current_user.tweet({:tweet_body => tweet_body, :user => current_user})
     @anniversary.tweet_id = tweet_result[:id].to_i
